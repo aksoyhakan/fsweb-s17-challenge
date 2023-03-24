@@ -9,9 +9,9 @@ create table urun(
 );
 
 create table indirim(
-	id int primary key,
+	indirimid int primary key,
     oran float not null,
-    indvarmı boolean default true
+    indvarmı boolean default false
 );
 
 create table reyon(
@@ -55,7 +55,7 @@ create table ayinelemani(
     calisanid int not null
 );
 
-alter table indirim add foreign key (id) references urun(urunid)
+alter table indirim add foreign key (urunid) references urun(urunid)
 on update cascade on delete cascade;
 alter table urun add foreign key (reyonid) references reyon(id)
 on update cascade on delete cascade;
